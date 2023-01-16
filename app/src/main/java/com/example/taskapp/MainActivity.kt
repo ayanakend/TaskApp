@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
                 navView.visibility = View.VISIBLE
             }
         }
-    }
 
+        setupActionBarWithNavController(navController,appBarConfiguration)
+        navView.setupWithNavController(navController)
+    }
 }
