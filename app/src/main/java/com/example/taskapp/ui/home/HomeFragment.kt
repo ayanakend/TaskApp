@@ -43,7 +43,6 @@ class HomeFragment : Fragment() {
         }
     }
     private fun initViews() {
-        adapter = TaskAdapter()
         binding.rvHome.layoutManager = LinearLayoutManager(context)
         binding.rvHome.adapter = adapter
 
