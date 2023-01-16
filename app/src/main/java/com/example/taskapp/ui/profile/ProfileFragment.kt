@@ -14,6 +14,7 @@ import com.example.taskapp.databinding.FragmentProfileBinding
 class ProfileFragment: Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
+
     private val getContent: ActivityResultLauncher<String> =
         registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri: Uri? ->
 

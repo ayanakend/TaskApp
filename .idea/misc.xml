@@ -7,7 +7,10 @@
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/drawable/ic_baseline_add_photo_alternate_24.xml" value="0.1175" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/activity_main.xml" value="0.20521590423257802" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_dashboard.xml" value="0.22056159420289856" />
-        <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_home.xml" value="0.20521590423257802" />
+        <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_new_task.xml" value="0.10029251984956122" />
+        <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_notifications.xml" value="0.20521590423257802" />
+        <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_profile.xml" value="0.10400000000000001" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20521590423257802" />
       </map>
     </option>
@@ -17,5 +20,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.10400000000000001" />
+      </ProjectState>
+    </option>
   </component>
 </project>

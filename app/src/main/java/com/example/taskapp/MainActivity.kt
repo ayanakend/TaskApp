@@ -27,16 +27,20 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home,
+                R.id.navigation_dashboard,
+                R.id.navigation_notifications,
+                R.id.profileFragment
             )
         )
 
-        navController.addOnDestinationChangedListener{ _, destination, _ ->
-            if (destination.id == R.id.newTaskFragment){
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.newTaskFragment) {
                 navView.visibility = View.GONE
-            }else{
+            } else {
                 navView.visibility = View.VISIBLE
             }
-            }
         }
+    }
+
 }
