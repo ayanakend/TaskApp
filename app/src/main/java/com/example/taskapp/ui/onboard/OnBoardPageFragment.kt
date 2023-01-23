@@ -1,19 +1,21 @@
 package com.example.taskapp.ui.onboard
 
-import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.taskapp.R
 import com.example.taskapp.databinding.FragmentOnBoardPageBinding
+import com.example.taskapp.utils.Preferences
 
 
-class OnBoardPageFragment : Fragment() {
+class OnBoardPageFragment(
+    var listenerNext: () -> Unit,
+    var listenerSkip: () -> Unit
+) : Fragment() {
 
     private lateinit var binding: FragmentOnBoardPageBinding
 
@@ -32,7 +34,14 @@ class OnBoardPageFragment : Fragment() {
 
     private fun initListeners() {
         binding.btnStart.setOnClickListener{
-            findNavController().navigate(R.id.navigation_home)
+            Preferences(requireContext()).setBoardingShowed(true)
+            findNavController().navigateUp()
+        }
+        binding.btnNext.setOnClickListener{
+            listenerNext.invoke()
+        }
+        binding.btnSkip.setOnClickListener{
+            listenerSkip.invoke()
         }
     }
 
@@ -48,6 +57,12 @@ class OnBoardPageFragment : Fragment() {
             binding.btnSkip.isVisible = data.isLast == false
             binding.btnNext.isVisible = data.isLast == false
             binding.btnStart.isVisible = data.isLast == true
+
+            if (data.isLast == false) {
+                binding.boardConst.setBackgroundResource(data.bg)
+            }else{
+                binding.boardConst.setBackgroundResource(data.bg)
+            }
         }
     }
 }
