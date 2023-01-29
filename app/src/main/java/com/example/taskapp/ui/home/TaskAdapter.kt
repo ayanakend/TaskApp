@@ -18,6 +18,12 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun addTasks(list: List<TaskModel>) {
+        taskList.clear()
+        taskList.addAll(list)
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(private var binding: ItemTaskBinding):
         RecyclerView.ViewHolder(binding.root) {
 
