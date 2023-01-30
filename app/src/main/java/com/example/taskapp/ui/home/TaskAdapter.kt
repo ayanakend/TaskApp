@@ -11,7 +11,7 @@ class TaskAdapter(private var onLongClick: (Int)-> Unit) : RecyclerView.Adapter<
     private var taskList = arrayListOf<TaskModel>()
 
 
-     fun addTask(taskModel: TaskModel) {
+     fun addTask(taskModel: List<TaskModel?>?) {
         taskList.add(taskModel)
          Log.e("ololo","addTask" + taskModel.title )
         notifyDataSetChanged()

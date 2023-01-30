@@ -19,18 +19,20 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
         return binding.root
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.sort_menu) {
 
@@ -95,18 +97,18 @@ class HomeFragment : Fragment() {
         builder.setTitle("Удаление")
         builder.setMessage("Вы точно хотите удалить запись?")
 
-        builder.setPositiveButton("Да") { dialog, which ->
+        builder.setPositiveButton("Да") { _, _ ->
             App.database.taskDao()?.delete(adapter.getTask(pos))
             setData()
         }
 
-        builder.setNegativeButton("Нет") { dialog, which ->
+        builder.setNegativeButton("Нет") { dialog, _ ->
             dialog.dismiss()
         }
         builder.show()
     }
 
-        fun setData() {
+        private fun setData() {
             val listOfTasks = App.database.taskDao()?.getAllTasks()
             adapter.addTasks(listOfTasks as List<TaskModel>)
 
