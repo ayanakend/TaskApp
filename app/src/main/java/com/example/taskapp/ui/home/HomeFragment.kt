@@ -43,15 +43,15 @@ class HomeFragment : Fragment() {
             builder.setItems(items) { dialog, which ->
                 when (which) {
                     0 -> {
-                        adapter.addTask(App.database.taskDao()?.getAllTasksByDate())
+                        adapter.addTasks(App.database.taskDao()?.getAllTasksByDate() as List<TaskModel>)
                         dialog.dismiss()
                     }
                     1 -> {
-                        adapter.addTask(App.database.taskDao()?.getAllTasksByAlphabetAz())
+                        adapter.addTasks(App.database.taskDao()?.getAllTasksByAlphabetAz() as List<TaskModel>)
                         dialog.dismiss()
                     }
                     2 -> {
-                        adapter.addTask(App.database.taskDao()?.getAllTasksByAlphabetZa())
+                        adapter.addTasks(App.database.taskDao()?.getAllTasksByAlphabetZa() as List<TaskModel>)
                         dialog.dismiss()
                     }
                 }
@@ -66,6 +66,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initViews()
         initListeners()
+        setData()
     }
 
     private fun initListeners() {
