@@ -12,8 +12,8 @@ import com.example.taskapp.utils.Preferences
 
 
 class OnBoardPageFragment(
-    var listenerNext: () -> Unit,
-    var listenerSkip: () -> Unit
+    private var listenerNext: () -> Unit,
+    private var listenerSkip: () -> Unit
 ) : Fragment() {
 
     private lateinit var binding: FragmentOnBoardPageBinding
@@ -22,7 +22,7 @@ class OnBoardPageFragment(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentOnBoardPageBinding.inflate(inflater, container, false)
 
         initViews()
@@ -44,6 +44,7 @@ class OnBoardPageFragment(
         }
     }
 
+    @Suppress("DEPRECATION")
     private fun initViews() {
 
         arguments.let{
@@ -57,7 +58,7 @@ class OnBoardPageFragment(
             binding.btnNext.isVisible = data.isLast == false
             binding.btnStart.isVisible = data.isLast == true
 
-            if (data.isLast == false) {
+            if (!data.isLast) {
                 binding.boardConst.setBackgroundResource(data.bg)
             }else{
                 binding.boardConst.setBackgroundResource(data.bg)

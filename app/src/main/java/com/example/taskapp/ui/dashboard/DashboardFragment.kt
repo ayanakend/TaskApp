@@ -11,7 +11,6 @@ class DashboardFragment : Fragment() {
 
     private lateinit var binding: FragmentDashboardBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -10,7 +10,7 @@ import com.example.taskapp.ui.home.TaskModel
 @Dao
 interface TaskDao {
     @Insert
-    fun insert(task: TaskModel?);
+    fun insert(task: TaskModel?)
 
     @Query("SELECT * FROM TaskModel")
     fun getAllTasks(): List<TaskModel?>?

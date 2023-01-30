@@ -14,14 +14,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="40dp"
         android:src="@drawable/ic_baseline_note_add_24"
-        />
+        tools:ignore="ContentDescription,HardcodedText" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_task"
-
-        />
+        tools:listitem="@layout/item_task"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

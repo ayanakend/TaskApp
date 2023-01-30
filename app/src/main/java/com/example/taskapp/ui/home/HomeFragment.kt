@@ -15,6 +15,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: TaskAdapter
 
+    @Suppress("DEPRECATION")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,12 +27,14 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    @Suppress("DEPRECATION")
     @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    @Suppress("UNCHECKED_CAST", "DEPRECATION")
     @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.sort_menu) {
@@ -77,15 +80,6 @@ class HomeFragment : Fragment() {
     private fun initViews() {
         binding.rvHome.layoutManager = LinearLayoutManager(context)
         binding.rvHome.adapter = adapter
-
-//        setFragmentResultListener("new_task") { key, bundle ->
-//                val title = bundle.getString("title")
-//                val desc = bundle.getString("desc")
-//                Log.e("ololo", "initViews: $title и $desc")
-//
-//            adapter.addTask(TaskModel(title, desc))
-//
-//            }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,9 +103,8 @@ class HomeFragment : Fragment() {
         builder.show()
     }
 
-        private fun setData() {
-            val listOfTasks = App.database.taskDao()?.getAllTasks()
-            adapter.addTasks(listOfTasks as List<TaskModel>)
-
-        }
+    @Suppress("UNCHECKED_CAST")
+    private fun setData() {
+        val listOfTasks = App.database.taskDao()?.getAllTasks()
+        adapter.addTasks(listOfTasks as List<TaskModel>)}
 }

@@ -1,6 +1,6 @@
 package com.example.taskapp.ui.home
 
-import android.util.Log
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,13 +10,7 @@ class TaskAdapter(private var onLongClick: (Int)-> Unit) : RecyclerView.Adapter<
 
     private var taskList = arrayListOf<TaskModel>()
 
-
-//     fun addTask(taskModel: TaskModel) {
-//        taskList.add(taskModel)
-//         Log.e("ololo","addTask" + taskModel.title )
-//        notifyDataSetChanged()
-//    }
-
+    @SuppressLint("NotifyDataSetChanged")
     fun addTasks(list: List<TaskModel>) {
         taskList.clear()
         taskList.addAll(list)

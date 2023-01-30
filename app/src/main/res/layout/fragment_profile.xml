@@ -27,6 +27,6 @@
         app:layout_constraintTop_toBottomOf="@+id/circle_image_view"
         android:background="@drawable/bcg_edit_text"
         android:hint="@string/name"
-        android:paddingHorizontal="25dp"/>
+        android:paddingHorizontal="25dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
