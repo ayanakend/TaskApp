@@ -1,16 +1,11 @@
 package com.example.taskapp.ui.onboard
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
-import androidx.viewpager.widget.ViewPager
-import com.example.taskapp.R
+import androidx.fragment.app.Fragment
 import com.example.taskapp.databinding.FragmentOnBoardBinding
-import com.example.taskapp.databinding.FragmentOnBoardPageBinding
-import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 
 class OnBoardFragment : Fragment() {
 

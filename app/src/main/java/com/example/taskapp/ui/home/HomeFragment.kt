@@ -1,12 +1,9 @@
 package com.example.taskapp.ui.home
 
+import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taskapp.App
@@ -25,8 +22,43 @@ class HomeFragment : Fragment() {
     ): View? {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        setHasOptionsMenu(true)
         return binding.root
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.sort_menu) {
+
+            val items = arrayOf("Дате", "A-z", "z-A")
+
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Sort by")
+            builder.setItems(items) { dialog, which ->
+                when (which) {
+                    0 -> {
+                        adapter.addTask(App.database.taskDao()?.getAllTasksByDate())
+                        dialog.dismiss()
+                    }
+                    1 -> {
+                        adapter.addTask(App.database.taskDao()?.getAllTasksByAlphabetAz())
+                        dialog.dismiss()
+                    }
+                    2 -> {
+                        adapter.addTask(App.database.taskDao()?.getAllTasksByAlphabetZa())
+                        dialog.dismiss()
+                    }
+                }
+            }
+            builder.show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,11 +83,32 @@ class HomeFragment : Fragment() {
 //            adapter.addTask(TaskModel(title, desc))
 //
 //            }
-        val listOfTasks = App.database.taskDao()?.getAllTasks()
-        adapter.addTasks(listOfTasks as List<TaskModel>)
-        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adapter = TaskAdapter()
+        adapter = TaskAdapter(this::onLongClickListener)
     }
+
+    private fun onLongClickListener(pos: Int) {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Удаление")
+        builder.setMessage("Вы точно хотите удалить запись?")
+
+        builder.setPositiveButton("Да") { dialog, which ->
+            App.database.taskDao()?.delete(adapter.getTask(pos))
+            setData()
+        }
+
+        builder.setNegativeButton("Нет") { dialog, which ->
+            dialog.dismiss()
+        }
+        builder.show()
+    }
+
+        fun setData() {
+            val listOfTasks = App.database.taskDao()?.getAllTasks()
+            adapter.addTasks(listOfTasks as List<TaskModel>)
+
+        }
 }

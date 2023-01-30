@@ -1,7 +1,7 @@
 package com.example.taskapp
 
 import android.app.Application
-import androidx.room.Database
+import com.example.taskapp.data.local.room.Database
 import androidx.room.Room
 
 class App: Application() {
