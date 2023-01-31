@@ -8,4 +8,12 @@
     <string name="profile">Profile</string>
     <string name="name">Name</string>
     <string name="sort">Sort</string>
+    <string name="sure_delite">Вы точно хотите удалить запись?</string>
+    <string name="delite">Удаление</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="sort_by">Sort by</string>
+    <string name="fell_place">Заполните обязательное поле</string>
+    <string name="update">Update</string>
+    <string name="save">Save</string>
 </resources>

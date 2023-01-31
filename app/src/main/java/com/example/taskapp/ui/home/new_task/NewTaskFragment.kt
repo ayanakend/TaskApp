@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.taskapp.App
+import com.example.taskapp.R
 import com.example.taskapp.databinding.FragmentNewTaskBinding
 import com.example.taskapp.ui.home.TaskModel
 
@@ -44,7 +45,7 @@ class NewTaskFragment : Fragment() {
                     saveTask()
                 }
             }else{
-                binding.etTitle.error = "Заполните обязательное поле"
+                binding.etTitle.error = getString(R.string.fell_place)
 
             }        }
     }
@@ -71,9 +72,9 @@ class NewTaskFragment : Fragment() {
                 binding.etTitle.setText(task?.title.toString())
                 binding.etDesc.setText(task?.desc.toString())
                 if (task != null) {
-                    binding.btnSave.text = "Update"
+                    binding.btnSave.text = getString(R.string.update)
                 }else{
-                    binding.btnSave.text = "Save"
+                    binding.btnSave.text = getString(R.string.save)
                 }
             }
         }

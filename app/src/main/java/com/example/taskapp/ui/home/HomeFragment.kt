@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
             val items = arrayOf("Дате", "A-z", "z-A")
 
             val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Sort by")
+            builder.setTitle(getString(R.string.sort_by))
             builder.setItems(items) { dialog, which ->
                 when (which) {
                     0 -> {
@@ -90,15 +90,15 @@ class HomeFragment : Fragment() {
 
     private fun onLongClickListener(pos: Int) {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Удаление")
-        builder.setMessage("Вы точно хотите удалить запись?")
+        builder.setTitle(getString(R.string.delite))
+        builder.setMessage(getString(R.string.sure_delite))
 
-        builder.setPositiveButton("Да") { _, _ ->
+        builder.setPositiveButton(getString(R.string.yes)) { _, _ ->
             App.database.taskDao()?.delete(adapter.getTask(pos))
             setData()
         }
 
-        builder.setNegativeButton("Нет") { dialog, _ ->
+        builder.setNegativeButton(getString(R.string.no)) { dialog, _ ->
             dialog.dismiss()
         }
         builder.show()
