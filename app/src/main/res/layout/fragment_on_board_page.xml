@@ -21,7 +21,7 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="To-do list!"
+        android:text="@string/to_do_list"
         android:textColor="@color/black"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -34,7 +34,7 @@
         android:id="@+id/tv_desc"
         android:layout_width="321dp"
         android:layout_height="wrap_content"
-        android:text="Here you can write down something important or make a schedule for tomorrow:)"
+        android:text="@string/desc_board"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +54,7 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:text="SKIP"/>
+        android:text="@string/skip"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next"
@@ -68,14 +68,13 @@
         app:layout_constraintTop_toTopOf="@id/btn_skip"
         android:layout_marginEnd="64dp"
         android:paddingVertical="14dp"
-        app:cornerRadius="64dp"
-        tools:ignore="HardcodedText" />
+        app:cornerRadius="64dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_start"
         android:layout_width="256dp"
         android:layout_height="wrap_content"
-        android:text="Start"
+        android:text="@string/start"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +82,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingVertical="14dp"
         android:layout_marginBottom="50dp"
-        app:cornerRadius="64dp"
-        tools:ignore="HardcodedText" />
+        app:cornerRadius="64dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

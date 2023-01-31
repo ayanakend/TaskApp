@@ -16,8 +16,7 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="24sp"
-        android:text="Title"
-        tools:ignore="HardcodedText" />
+        android:text="@string/title" />
 
     <TextView
         android:id="@+id/tv_desc_item"
@@ -28,8 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:text="Description"
-        tools:ignore="HardcodedText" />
+        android:text="@string/description" />
 
     <View
         android:id="@+id/view_string"

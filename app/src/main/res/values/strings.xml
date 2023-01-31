@@ -16,4 +16,10 @@
     <string name="fell_place">Заполните обязательное поле</string>
     <string name="update">Update</string>
     <string name="save">Save</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="to_do_list">To-do list!</string>
+    <string name="skip">SKIP</string>
+    <string name="start">Start</string>
+    <string name="desc_board">Here you can write down something important or make a schedule for tomorrow:)</string>
 </resources>
