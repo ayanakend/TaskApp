@@ -2,6 +2,7 @@ package com.example.taskapp.ui.home
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
 data class TaskModel(
@@ -9,4 +10,4 @@ data class TaskModel(
     var id: Int? = null,
     var title: String? = null,
     var desc: String? = null,
-)
+): Serializable

@@ -1,12 +1,13 @@
 package com.example.taskapp.ui.home
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskapp.databinding.ItemTaskBinding
 
-class TaskAdapter(private var onLongClick: (Int)-> Unit) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+class TaskAdapter(private var onLongClick: (Int)-> Unit, private val onClick: (TaskModel) -> Unit) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
     private var taskList = arrayListOf<TaskModel>()
 
@@ -27,6 +28,12 @@ class TaskAdapter(private var onLongClick: (Int)-> Unit) : RecyclerView.Adapter<
         fun bind(taskModel: TaskModel) {
             binding.tvTitleItem.text = taskModel.title
             binding.tvDescItem.text = taskModel.desc
+
+            changeColor(adapterPosition, binding)
+
+            itemView.setOnClickListener {
+                onClick(taskModel)
+            }
 
             itemView.setOnLongClickListener{
                 onLongClick(adapterPosition)
@@ -51,5 +58,14 @@ class TaskAdapter(private var onLongClick: (Int)-> Unit) : RecyclerView.Adapter<
 
     override fun getItemCount(): Int {
         return taskList.size
+    }
+
+    private fun changeColor(position: Int, binding: ItemTaskBinding) {
+        if(position % 2 != 0) {
+            binding.itemContainer.setBackgroundColor(Color.BLACK)
+            binding.tvTitleItem.setTextColor(Color.WHITE)
+            binding.tvDescItem.setTextColor(Color.WHITE)
+            binding.viewString.setBackgroundColor(Color.WHITE)
+        }
     }
 }
