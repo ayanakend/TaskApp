@@ -62,7 +62,7 @@ class TaskAdapter(private var onLongClick: (Int)-> Unit, private val onClick: (T
 
     private fun changeColor(position: Int, binding: ItemTaskBinding) {
         if(position % 2 != 0) {
-            binding.itemContainer.setBackgroundColor(Color.BLACK)
+            binding.itemContainer.setBackgroundColor(Color.GRAY)
             binding.tvTitleItem.setTextColor(Color.WHITE)
             binding.tvDescItem.setTextColor(Color.WHITE)
             binding.viewString.setBackgroundColor(Color.WHITE)

@@ -48,13 +48,25 @@ class ProfileFragment: Fragment() {
 
     private fun checkChanges() {
         if (preferences.getName() != ""){
-            binding.etName.setText(preferences.getName())
-        }
+            binding.etName.setText(preferences.getName())}
+//        ;if (preferences.getEmail() != ""){
+//            binding.etEmail.setText(preferences.getEmail())
+//        };if (preferences.getPhone() != ""){
+//            binding.etPhone.setText(preferences.getPhone())
+//        };if (preferences.getGender() != ""){
+//            binding.etGender.setText(preferences.getGender())
+//        };if (preferences.getDateOfBirth() != ""){
+//            binding.etDateOfBirth.setText(preferences.getDateOfBirth())
+//        }
     }
 
     private fun saveChanges() {
         binding.etName.addTextChangedListener {
             preferences.saveName(binding.etName.text.toString())
+            preferences.saveEmail(binding.etEmail.text.toString())
+            preferences.savePhone(binding.etName.text.toString())
+            preferences.saveGender(binding.etName.text.toString())
+            preferences.saveDateOfBirth(binding.etName.text.toString())
         }
         if (preferences.getImage() != ""){
             Glide.with(this).load(preferences.getImage()).into(binding.circleImageView)

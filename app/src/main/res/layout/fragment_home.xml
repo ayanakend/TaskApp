@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#F7F5EB"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
@@ -13,7 +14,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="40dp"
-        android:src="@drawable/ic_baseline_note_add_24"
+        app:backgroundTint="#EAC7C7"
+        android:src="@drawable/ic_baseline_add_box_24"
         tools:ignore="ContentDescription" />
 
     <androidx.recyclerview.widget.RecyclerView
