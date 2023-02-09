@@ -25,5 +25,6 @@
     <string name="to_do_list">To-do list!</string>
     <string name="skip">SKIP</string>
     <string name="start">Start</string>
+    <string name="send">Send</string>
     <string name="desc_board">Here you can write down something important or make a schedule for tomorrow:)</string>
 </resources>
