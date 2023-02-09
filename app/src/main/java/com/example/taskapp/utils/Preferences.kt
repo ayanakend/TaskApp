@@ -21,30 +21,30 @@ class Preferences(context: Context) {
          sharedPreference.edit().putString(PREF_SAVE_NAME, title).apply ()
     }
 
-    fun getEmail(): String? {
-        return sharedPreference.getString(PREF_SAVE_EMAIL, "")
-    }
+//    fun getEmail(): String? {
+//        return sharedPreference.getString(PREF_SAVE_EMAIL, "")
+//    }
     fun saveEmail(title: String) {
         sharedPreference.edit().putString(PREF_SAVE_EMAIL, title).apply ()
     }
 
-    fun getPhone(): String? {
-        return sharedPreference.getString(PREF_SAVE_PHONE, "")
-    }
+//    fun getPhone(): String? {
+//        return sharedPreference.getString(PREF_SAVE_PHONE, "")
+//    }
     fun savePhone(title: String) {
         sharedPreference.edit().putString(PREF_SAVE_PHONE, title).apply ()
     }
 
-    fun getGender(): String? {
-        return sharedPreference.getString(PREF_SAVE_GENDER, "")
-    }
+//    fun getGender(): String? {
+//        return sharedPreference.getString(PREF_SAVE_GENDER, "")
+//    }
     fun saveGender(title: String) {
         sharedPreference.edit().putString(PREF_SAVE_GENDER, title).apply ()
     }
 
-    fun getDateOfBirth(): String? {
-        return sharedPreference.getString(PREF_SAVE_DATE_OF_BIRTH, "")
-    }
+//    fun getDateOfBirth(): String? {
+//        return sharedPreference.getString(PREF_SAVE_DATE_OF_BIRTH, "")
+//    }
     fun saveDateOfBirth(title: String) {
         sharedPreference.edit().putString(PREF_SAVE_DATE_OF_BIRTH, title).apply ()
     }

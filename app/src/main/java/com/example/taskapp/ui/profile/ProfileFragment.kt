@@ -48,14 +48,18 @@ class ProfileFragment: Fragment() {
 
     private fun checkChanges() {
         if (preferences.getName() != ""){
-            binding.etName.setText(preferences.getName())}
-//        ;if (preferences.getEmail() != ""){
+            binding.etName.setText(preferences.getName())
+        }
+//        if (preferences.getEmail() != ""){
 //            binding.etEmail.setText(preferences.getEmail())
-//        };if (preferences.getPhone() != ""){
+//        }
+//        if (preferences.getPhone() != ""){
 //            binding.etPhone.setText(preferences.getPhone())
-//        };if (preferences.getGender() != ""){
+//        }
+//        if (preferences.getGender() != ""){
 //            binding.etGender.setText(preferences.getGender())
-//        };if (preferences.getDateOfBirth() != ""){
+//        }
+//        if (preferences.getDateOfBirth() != ""){
 //            binding.etDateOfBirth.setText(preferences.getDateOfBirth())
 //        }
     }

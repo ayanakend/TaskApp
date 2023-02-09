@@ -19,7 +19,6 @@
         app:lottie_rawRes="@raw/authentication_success"
         app:lottie_loop="true"/>
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_phone_layout"
         android:layout_width="match_parent"
@@ -27,11 +26,29 @@
         app:layout_constraintTop_toBottomOf="@id/animationView"
         android:layout_marginTop="16dp"
         style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-        android:hint="@string/phone"
+        android:hint="@string/phone_num"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_code_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/animationView"
+        android:layout_marginTop="16dp"
+        style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+        android:hint="@string/code"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -51,5 +68,21 @@
         android:padding="12dp"
         android:layout_marginTop="16dp"
         app:cornerRadius="12dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_confirm"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/et_code_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/confirm"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        app:cornerRadius="12dp"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
