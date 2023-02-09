@@ -36,7 +36,7 @@ class AuthFragment : Fragment() {
 
     private fun initListener() {
         binding.btnSend.setOnClickListener{
-            if (binding.etPhone.text!!.isNotEmpty() == true) {
+            if (binding.etPhone.text!!.isNotEmpty()) {
                 sendPhone()
                 showToast("Отправка...")
             }else{
