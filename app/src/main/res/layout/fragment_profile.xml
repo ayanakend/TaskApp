@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidUnknownAttribute -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -39,7 +40,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/et_name"
     android:background="@drawable/bcg_edit_text"
-    android:hint="Email"
+    android:hint="@string/email"
     android:paddingHorizontal="25dp" />
 
     <EditText
@@ -51,7 +52,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/et_email"
     android:background="@drawable/bcg_edit_text"
-    android:hint="Phone"
+    android:hint="@string/phone"
     android:paddingHorizontal="25dp" />
 
     <EditText
@@ -63,7 +64,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/et_phone"
     android:background="@drawable/bcg_edit_text"
-    android:hint="Gender"
+    android:hint="@string/gender"
     android:paddingHorizontal="25dp" />
 
     <EditText
@@ -75,7 +76,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/et_gender"
     android:background="@drawable/bcg_edit_text"
-    android:hint="Date Of Birth"
+    android:hint="@string/birth_date"
     android:paddingHorizontal="25dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

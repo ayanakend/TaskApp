@@ -19,7 +19,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_title"
-            android:backgroundTint="#EAE0DA"
+            android:background="#EAE0DA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -37,7 +37,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_desc"
-            android:backgroundTint="#EAE0DA"
+            android:background="#EAE0DA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
