@@ -29,7 +29,6 @@ class AuthFragment : Fragment() {
     ): View {
         binding = FragmentAuthBinding.inflate(inflater, container, false)
 
-        initViews()
         initListener()
 
         return binding.root
@@ -49,7 +48,6 @@ class AuthFragment : Fragment() {
         }
     }
 
-    private fun initViews() {}
 
 
      private fun sendPhone(){
@@ -85,8 +83,10 @@ class AuthFragment : Fragment() {
 
     private fun sendCode() {
         val credential =
-            PhoneAuthProvider.getCredential(correctCode.toString(),
-                    binding.etCode.text.toString())
+            PhoneAuthProvider.getCredential(
+                correctCode.toString(),
+                binding.etCode.text.toString()
+            )
         signInWithPhoneAuthCredential(credential)
     }
 
