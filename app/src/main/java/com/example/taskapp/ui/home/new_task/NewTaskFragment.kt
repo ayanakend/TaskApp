@@ -1,27 +1,41 @@
 package com.example.taskapp.ui.home.new_task
 
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.taskapp.App
 import com.example.taskapp.R
+import com.example.taskapp.data.remote.firestore.FirestoreUtils
 import com.example.taskapp.databinding.FragmentNewTaskBinding
+import com.example.taskapp.extensoins.loadImage
 import com.example.taskapp.ui.home.TaskModel
 
 class NewTaskFragment : Fragment() {
 
     private lateinit var binding: FragmentNewTaskBinding
     private var task: TaskModel? = null
+    private var imgUrl: String = ""
+
+    private val getContent: ActivityResultLauncher<String> =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri: Uri? ->
+            imgUrl = imageUri.toString()
+            binding.imgNewTask.loadImage(url)
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNewTaskBinding.inflate(inflater,container,false)
+        binding = FragmentNewTaskBinding.inflate(inflater, container, false)
 
         initListeners()
 
@@ -37,25 +51,32 @@ class NewTaskFragment : Fragment() {
     }
 
     private fun checkTask() {
-        binding.btnSave.setOnClickListener{
+        binding.btnSave.setOnClickListener {
             if (binding.etTitle.text.toString().isNotEmpty()) {
-                if (task !== null){
+                if (task !== null) {
                     updateTask()
-                }else{
+                } else {
                     saveTask()
                 }
-            }else{
+            } else {
                 binding.etTitle.error = getString(R.string.fell_place)
 
-            }        }
+            }
+        }
     }
 
     private fun initListeners() {
-        binding.btnSave.setOnClickListener{
-            App.database.taskDao()?.insert(TaskModel(
-                title = binding.etTitle.text.toString(),
-                desc = binding.etDesc.text.toString()
-            ))
+        binding.imgNewTask.setOnClickListener {
+            getContent.launch("image/*")
+        }
+
+        binding.btnSave.setOnClickListener {
+            App.database.taskDao()?.insert(
+                TaskModel(
+                    title = binding.etTitle.text.toString(),
+                    desc = binding.etDesc.text.toString()
+                )
+            )
             findNavController().navigateUp()
         }
 
@@ -73,7 +94,7 @@ class NewTaskFragment : Fragment() {
                 binding.etDesc.setText(task?.desc.toString())
                 if (task != null) {
                     binding.btnSave.text = getString(R.string.update)
-                }else{
+                } else {
                     binding.btnSave.text = getString(R.string.save)
                 }
             }
@@ -83,19 +104,44 @@ class NewTaskFragment : Fragment() {
     private fun updateTask() {
         task?.title = binding.etTitle.text.toString()
         task?.desc = binding.etDesc.text.toString()
-        task?.let{App.database.taskDao()?.update(it)}
+        task?.let { App.database.taskDao()?.update(it) }
         findNavController().navigateUp()
     }
 
     private fun saveTask() {
-        binding.btnSave.setOnClickListener{
-            App.database.taskDao()?.insert(
-                TaskModel(
-                    title = binding.etTitle.text.toString(),
-                    desc = binding.etDesc.text.toString()
-                )
-            )
+        binding.btnSave.setOnClickListener {
+            saveDataToRoom()
+            saveDataToFirestore()
             findNavController().navigateUp()
         }
+    }
+
+
+    fun saveDataToFirestore() {
+        val task = TaskModel(
+            imgUrl = imgUrl,
+            title = binding.etTitle.text.toString(),
+            desc = binding.etDesc.text.toString()
+        )
+
+        FirestoreUtils().fireStore.collection("User1")
+            .add(task)
+            .addOnSuccessListener {
+                Log.d(TAG, "Added document with ID ${it.id}")
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error adding document $exception")
+            }
+    }
+
+    private fun saveDataToRoom() {
+        App.database.taskDao()?.insert(
+            TaskModel(
+                imgUrl = imgUrl,
+                title = binding.etTitle.text.toString(),
+                desc = binding.etDesc.text.toString()
+            )
+        )
+
     }
 }

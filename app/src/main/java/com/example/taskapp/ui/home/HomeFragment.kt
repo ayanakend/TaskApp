@@ -112,4 +112,6 @@ class HomeFragment : Fragment() {
     private fun onTaskClick(taskModel: TaskModel) {
         findNavController().navigate(R.id.newTaskFragment, bundleOf("update-tasks" to taskModel))
     }
+
+    private fun getDataFirestore(){}
 }
