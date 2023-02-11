@@ -26,8 +26,6 @@
         android:layout_marginTop="34dp"
         style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
         android:hint="@string/title"
-        android:textColorHint="@colors/black"
-        android:textColor="@colors/black"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -46,8 +44,6 @@
         android:layout_marginTop="16dp"
         style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
         android:hint="@string/description"
-        android:textColorHint="@colors/black"
-        android:textColor="@colors/black"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
