@@ -75,6 +75,11 @@ dependencies {
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
-    //firebase firestore
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.2'
+    //firebase FireStore
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.3'
+    implementation 'com.google.firebase:firebase-firestore:24.4.3'
+
+    //firebase CloudMessaging
+    implementation 'com.google.firebase:firebase-messaging:23.1.1'
+
 }

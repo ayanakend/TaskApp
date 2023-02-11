@@ -76,7 +76,7 @@ class AuthFragment : Fragment() {
                      binding.etCodeLayout.isVisible = true
                      binding.btnConfirm.isVisible = true
 
-                     Log.e("ololo", "onCodeSent:$p0")
+                     Log.w("ololo", "onCodeSent:$p0")
                  }
 
              })          // OnVerificationStateChangedCallbacks

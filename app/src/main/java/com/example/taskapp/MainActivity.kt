@@ -1,6 +1,7 @@
 package com.example.taskapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.taskapp.databinding.ActivityMainBinding
 import com.example.taskapp.utils.Preferences
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
         navController.navigate(R.id.authFragment)
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { token ->
+            Log.e("ololo", "User registration token:"+ token.result)
+        }
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
