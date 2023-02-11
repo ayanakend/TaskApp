@@ -18,17 +18,18 @@ import com.example.taskapp.data.remote.firestore.FirestoreUtils
 import com.example.taskapp.databinding.FragmentNewTaskBinding
 import com.example.taskapp.extensoins.loadImage
 import com.example.taskapp.ui.home.TaskModel
+import com.example.taskapp.utils.Preferences
 
 class NewTaskFragment : Fragment() {
 
     private lateinit var binding: FragmentNewTaskBinding
     private var task: TaskModel? = null
-    private var imgUrl: String = ""
+    private var imgUri: String? = null
 
     private val getContent: ActivityResultLauncher<String> =
         registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri: Uri? ->
-            imgUrl = imageUri.toString()
-            binding.imgNewTask.loadImage(url)
+            imgUri = imageUri.toString()
+            binding.imgNewTask.loadImage(imageUri.toString())
         }
 
     override fun onCreateView(
@@ -73,6 +74,7 @@ class NewTaskFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             App.database.taskDao()?.insert(
                 TaskModel(
+                    imgUri = imgUri,
                     title = binding.etTitle.text.toString(),
                     desc = binding.etDesc.text.toString()
                 )
@@ -117,9 +119,9 @@ class NewTaskFragment : Fragment() {
     }
 
 
-    fun saveDataToFirestore() {
+    private fun saveDataToFirestore() {
         val task = TaskModel(
-            imgUrl = imgUrl,
+            imgUri = imgUri,
             title = binding.etTitle.text.toString(),
             desc = binding.etDesc.text.toString()
         )
@@ -137,7 +139,7 @@ class NewTaskFragment : Fragment() {
     private fun saveDataToRoom() {
         App.database.taskDao()?.insert(
             TaskModel(
-                imgUrl = imgUrl,
+                imgUri = imgUri,
                 title = binding.etTitle.text.toString(),
                 desc = binding.etDesc.text.toString()
             )

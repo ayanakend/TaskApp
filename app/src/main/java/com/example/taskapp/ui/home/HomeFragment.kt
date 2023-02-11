@@ -2,6 +2,7 @@ package com.example.taskapp.ui.home
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -9,12 +10,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taskapp.App
 import com.example.taskapp.R
+import com.example.taskapp.data.remote.firestore.FirestoreUtils
 import com.example.taskapp.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: TaskAdapter
+    private var listTaskFirestore: ArrayList<TaskModel> = arrayListOf()
 
     @Suppress("DEPRECATION")
     override fun onCreateView(
@@ -70,7 +73,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initViews()
         initListeners()
-        setData()
     }
 
     private fun initListeners() {
@@ -81,6 +83,9 @@ class HomeFragment : Fragment() {
     private fun initViews() {
         binding.rvHome.layoutManager = LinearLayoutManager(context)
         binding.rvHome.adapter = adapter
+
+        //setData()
+        getDataFirestore()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -113,5 +118,19 @@ class HomeFragment : Fragment() {
         findNavController().navigate(R.id.newTaskFragment, bundleOf("update-tasks" to taskModel))
     }
 
-    private fun getDataFirestore(){}
+    private fun getDataFirestore(){
+        FirestoreUtils().fireStore.collection("User1")
+            .get()
+            .addOnSuccessListener { data ->
+                data.forEach{document ->
+                    Log.d("ololo", "Read document with ID ${document.data}")
+                    val task = document.toObject(TaskModel::class.java)
+                    listTaskFirestore.add(task)
+                }
+                adapter.addTasks(listTaskFirestore)
+            }
+            .addOnFailureListener { exception ->
+                Log.w("ololo", "Error getting documents $exception")
+            }
+    }
 }

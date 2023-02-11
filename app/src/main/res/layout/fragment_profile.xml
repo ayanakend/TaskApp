@@ -55,28 +55,20 @@
     android:hint="@string/phone"
     android:paddingHorizontal="25dp" />
 
-    <EditText
-    android:id="@+id/et_gender"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:layout_margin="40dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/et_phone"
-    android:background="@drawable/bcg_edit_text"
-    android:hint="@string/gender"
-    android:paddingHorizontal="25dp" />
 
-    <EditText
-    android:id="@+id/et_date_of_birth"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:layout_margin="40dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/et_gender"
-    android:background="@drawable/bcg_edit_text"
-    android:hint="@string/birth_date"
-    android:paddingHorizontal="25dp" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#EAC7C7"
+        android:text="Exit->"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_phone"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

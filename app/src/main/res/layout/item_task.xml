@@ -11,9 +11,11 @@
         android:id="@+id/img"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:src="@drawable/ic_no_photo"
         android:layout_marginStart="4dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tv_title_item"
@@ -44,6 +46,6 @@
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:background="#27000000"
-        app:layout_constraintTop_toBottomOf="@+id/tv_desc_item"
+        app:layout_constraintTop_toBottomOf="@+id/img"
         android:layout_marginTop="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

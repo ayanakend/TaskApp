@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskapp.databinding.ItemTaskBinding
+import com.example.taskapp.extensoins.loadImage
 
 class TaskAdapter(private var onLongClick: (Int)-> Unit, private val onClick: (TaskModel) -> Unit) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
@@ -28,6 +29,7 @@ class TaskAdapter(private var onLongClick: (Int)-> Unit, private val onClick: (T
         fun bind(taskModel: TaskModel) {
             binding.tvTitleItem.text = taskModel.title
             binding.tvDescItem.text = taskModel.desc
+           taskModel.imgUri?.let { binding.img.loadImage(it) }
 
             changeColor(adapterPosition, binding)
 

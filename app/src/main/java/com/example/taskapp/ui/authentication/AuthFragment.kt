@@ -1,6 +1,7 @@
 package com.example.taskapp.ui.authentication
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,7 +54,7 @@ class AuthFragment : Fragment() {
      private fun sendPhone(){
          auth.setLanguageCode("ru")
          val options = PhoneAuthOptions.newBuilder(auth)
-             .setPhoneNumber(binding.etPhone.text.toString())       // Phone number to verify
+             .setPhoneNumber("+996"+binding.etPhone.text.toString())       // Phone number to verify
              .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
              .setActivity(requireActivity())                 // Activity (for callback binding)
              .setCallbacks(object : PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
@@ -63,6 +64,7 @@ class AuthFragment : Fragment() {
 
                  override fun onVerificationFailed(p0: FirebaseException) {
                      showToast(p0.message.toString())
+                     Log.w("ololo", "signInWithCredential:failure", p0)
                  }
                  override fun onCodeSent(p0: String, p1: PhoneAuthProvider.ForceResendingToken) {
                      super.onCodeSent(p0, p1)
@@ -98,6 +100,7 @@ class AuthFragment : Fragment() {
                 }else{
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         showToast("Что-то пошло не так...")
+                        //Log.w("ololo", "signInWithPhoneAuthCredential:failure", credential)
                     }
                 }
             }

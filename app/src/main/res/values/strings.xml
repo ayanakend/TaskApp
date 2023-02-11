@@ -12,7 +12,7 @@
     <string name="code">Code</string>
     <string name="confirm">Confirm</string>
     <string name="phone">Phone</string>
-    <string name="phone_num">Phone number</string>
+    <string name="phone_num">Phone number without null and country code</string>
     <string name="gender">Gender</string>
     <string name="birth_date">Date of birth</string>
     <string name="sure_delite">Вы точно хотите удалить запись?</string>

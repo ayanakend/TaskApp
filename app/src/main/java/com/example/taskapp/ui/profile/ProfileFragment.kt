@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.taskapp.databinding.FragmentProfileBinding
 import com.example.taskapp.utils.Preferences
+import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment: Fragment() {
 
@@ -42,6 +43,7 @@ class ProfileFragment: Fragment() {
         preferences = Preferences(requireContext())
         saveChanges()
         checkChanges()
+        initListener()
 
         return binding.root
     }
@@ -74,6 +76,12 @@ class ProfileFragment: Fragment() {
         }
         if (preferences.getImage() != ""){
             Glide.with(this).load(preferences.getImage()).into(binding.circleImageView)
+        }
+    }
+
+    private fun initListener() {
+        binding.btnExit.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
         }
     }
 }

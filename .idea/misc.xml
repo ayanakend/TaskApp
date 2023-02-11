@@ -11,6 +11,7 @@
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/drawable/ic_no_photo.xml" value="0.1" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/drawable/icon_profile.xml" value="0.1" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/activity_main.xml" value="0.20521590423257802" />
@@ -21,7 +22,7 @@
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_notifications.xml" value="0.20521590423257802" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_on_board.xml" value="0.15231187669990934" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_on_board_page.xml" value="0.1" />
-        <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/fragment_profile.xml" value="0.22419928825622776" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/layout/item_task.xml" value="0.1" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20521590423257802" />
         <entry key="..\:/Task App/TaskApp/hw/app/src/main/res/menu/menu.xml" value="0.2021950189953567" />
